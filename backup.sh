@@ -43,7 +43,7 @@ move_backup () {
 	sudo cp -rf $HOME/.gk	/media/robert/Ventoy/Backup
 	sudo cp -rf $HOME/snap	/media/robert/Ventoy/Backup
 	sudo cp -rf /var/lib/docker/containers/ /media/robert/Ventoy/Backup
-	sudo cp -rf post-installation_fedora /media/robert/Ventoy/Backup
+	sudo cp -rf post-installation_fedora /media/robert/Ventoy/
 }
 finalization () {
 	echo Finalizado - Pressione "enter" para sair; read_
