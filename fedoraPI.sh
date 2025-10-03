@@ -74,6 +74,6 @@ finalization () {
 #------------------------------------------------------------------------ #
 update_blotware_dependences_flathub
 fonts
-move_backup
+#move_backup
 apps_and_dependencies
 finalization
