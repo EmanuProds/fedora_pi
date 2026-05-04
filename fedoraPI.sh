@@ -308,10 +308,13 @@ development() {
     export SUDO_ASKPASS=/usr/bin/zenity
 
     dialog --title "Aguarde" --infobox "\nInstalando plugins..." 7 50
+    cp $FPI_BASH_DIR/.bashrc $HOME &> /dev/null
     cp $FPI_BASH_DIR/.bash_aliases $HOME &> /dev/null
     cp $FPI_BASH_DIR/.blerc $HOME &> /dev/null
     cp $FPI_BASH_DIR/.booster $HOME &> /dev/null
 
+    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git  &> /dev/null
+    make -C ble.sh install PREFIX=~/.local &> /dev/null
     sudo dnf install -y dnf-plugins-core &> /dev/null
     sudo dnf install -y android-tools python3-pip &> /dev/null
     sleep 1
@@ -340,8 +343,8 @@ development() {
     sleep 1
 
     dialog --title "Aguarde" --infobox "\nInstalando e configurando o mise..." 7 50
-    cp $FPI_BASH_DIR/.bashrc $HOME &> /dev/null
     curl -fsSL https://mise.run/bash | sh &> /dev/null
+    cp $FPI_BASH_DIR/.bashrc $HOME &> /dev/null
     source $HOME/.bashrc &> /dev/null
     mkdir -p $LOCAL_DIR/bash-completion/completions/
     mise completion bash --include-bash-completion-lib > ~/.local/share/bash-completion/completions/mise
